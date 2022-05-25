@@ -1,0 +1,13 @@
+{
+        "author": "Vasilii Akhmadiiarov",
+        "scripts": {
+                "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
+                "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+                "dev": "env NODE_ENV=development webpack-dev-server",
+                "predeploy": "npm run build:prod",
+                "deploy": "gh-pages -d dist"
+        },
+        "dependencies": {
+                "xlsx": "^0.18.5"
+        }
+}
