@@ -1,0 +1,14 @@
+.tableBody,
+.informationContainer,
+.footer {
+    display: flex;
+}
+
+.informationContainer,
+.analyticsCont {
+    overflow-x: scroll;
+}
+
+.footer div:first-child {
+    flex: 0 0 60%;
+}
