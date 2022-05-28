@@ -1,0 +1,21 @@
+.columnItem,
+.tableFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.columnItem,
+.tableFooter,
+td {
+    margin: 1vh;
+    padding: 2vh;
+    height: 5vh;
+    text-align: center;
+    font-size: 2vh;
+    border: black 1px solid;
+}
+
+.tableFooter {
+    background-color: antiquewhite;
+}
