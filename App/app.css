@@ -1,0 +1,102 @@
+@import url('./src/fonts/font.css');
+:root {
+    --main-color: rgb(31, 31, 31);
+    --second-color: rgb(57, 192, 186);
+    --main-text-color: rgb(31, 31, 31);
+    --second-text-color: white;
+    --main-btn-color: rgb(31, 31, 31);
+    --second-btn-color: rgba(57, 192, 185, 0.479);
+    --back-color: rgba(0, 0, 0, 0.19);
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(31, 31, 31);
+}
+
+html {
+    font-family: 'NasalizationRg-Regular';
+    font-size: 1.5vh;
+}
+
+h1,
+h2 {
+    font-size: 2vh;
+}
+
+button {
+    padding: unset;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+
+a:-webkit-any-link {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* ul {
+    list-style-type: unset;
+}
+
+li {
+    display: unset;
+} */
+
+body {
+    margin: unset;
+}
+
+section {
+    padding: 1vh;
+    margin-bottom: 2vh;
+}
+
+p {
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+}
+
+.btn {
+    position: relative;
+    padding: 1vh 2vh;
+    border-radius: 5px;
+    border: 2px solid var(--main-btn-color);
+    overflow: hidden;
+    transition: color .3s ease, bottom .3s ease;
+    ;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    color: var(--second-color);
+    background-color: var(--main-btn-color);
+    transform: translateY(101%);
+    transition: transform .3s ease;
+    z-index: -1;
+}
+
+.btn:hover:before {
+    transform: translateY(0%);
+}
+
+.btn:hover {
+    color: var(--second-color);
+}
+
+@media (min-width: 1200px) {
+    section {
+        padding: 3vw;
+    }
+}

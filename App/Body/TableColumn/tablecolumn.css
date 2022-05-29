@@ -10,12 +10,21 @@
 td {
     margin: 1vh;
     padding: 2vh;
-    height: 5vh;
+    height: 3.2vh;
     text-align: center;
-    font-size: 2vh;
     border: black 1px solid;
 }
 
-.tableFooter {
+.tableFooter,
+.columnItem:first-child {
+    background-color: antiquewhite;
+}
+
+tr:not(:first-child, :last-child) td:first-child {
+    background-color: var(--second-btn-color);
+}
+
+tr:first-child,
+tr:last-child {
     background-color: antiquewhite;
 }

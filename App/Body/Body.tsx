@@ -12,13 +12,14 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface IMyBody {
   lang: boolean
+  btnClass: string
 }
 
 interface IMyDataObject {
   [key: string]: any
 }
 
-const Body = ({ lang }: IMyBody) => {
+const Body = ({ lang, btnClass }: IMyBody) => {
   const tableHeaderEn = ['A/A', '№ BUYER', 'CATEGORY', 'YEAR', 'TOTAL GAS CONSUMPTION (kWh)', 'GAS PRICE (€)', 'COORDINATES X', 'COORDINATES Y', 'TOTAL'];
   const emptyLabel: string[] = []
   const emptyVal: number[] = [];
@@ -92,11 +93,13 @@ const Body = ({ lang }: IMyBody) => {
     const sheet = Object(workbook).Sheets[str]
     const table = xlsx.utils.sheet_to_html(sheet)
 
+    const header = document.getElementById('analiticsTitle');
     const tableDiv = document.getElementById('analiticsTableDiv');
 
-    tableDiv
-      ? tableDiv.innerHTML = table
-      : '';
+    if (tableDiv) {
+      header ? header.style.display = 'flex' : '';
+      tableDiv.innerHTML = table;
+    }
 
   }
 
@@ -152,9 +155,9 @@ const Body = ({ lang }: IMyBody) => {
   }, [json])
 
   return (
-    <div className={styles.table}>
-      <div className={styles.tableBody}>
-        <div className='buyer' onClick={e => {
+    <main className={styles.table}>
+      <section id='mainTable' className={styles.tableBody}>
+        <div className={styles.buyer} onClick={e => {
           const event = e.target;
           const el = Object(event);
           const value = el.innerHTML.slice(2)
@@ -162,36 +165,54 @@ const Body = ({ lang }: IMyBody) => {
           handler(value)
 
         }} >
-          <TableColumn text={json} keys={keys[1]} />
+          <TableColumn text={json} keys={keys[1]} myClass={styles.buyerCol} />
         </div>
         <div className={styles.informationContainer}>
           {keys.map((key, i) => {
             if (i > 1) {
               return (
-                <TableColumn text={json} keys={key} key={key} />
+                <TableColumn text={json} keys={key} key={key} lang={lang} />
               )
             }
           })}
         </div>
-      </div>
-      <div id="analyticTable" >
-        <button onClick={() => {
-          const table = document.getElementById('analiticsTableDiv');
-          table
-          ? table.innerHTML = ''
-          : '';
-        }}>
-          {
-            lang
-            ? 'ΑΠΟΚΡΙΨΗ'
-            : 'hide'
-          }
-        </button>
-        <div id='analiticsTableDiv' className={styles.analyticsCont}></div>
-      </div>
+      </section>
+      <section id="analyticTable" >
+        <div id='analiticsTitle' style={{ display: 'none' }}
+          className={styles.analiticsHeader}>
+          <h2>
+            {
+              lang
+                ? 'ΑΝΑΛΥΤΙΚΟΣ ΠΙΝΑΚΑΣ'
+                : 'Detail table'
+            }
+          </h2>
+          <button id='hideBtn'
+            className={btnClass + ' ' + styles.btn}
+            onClick={() => {
+              const table = document.getElementById('analiticsTableDiv');
+              const header = document.getElementById('analiticsTitle');
 
-      <div className={styles.graphics}>
-        <div>
+              header
+                ? header.style.display = 'none'
+                : '';
+
+              table
+                ? table.innerHTML = ''
+                : '';
+            }}>
+            {
+              lang
+                ? 'ΑΠΟΚΡΙΨΗ'
+                : 'hide'
+            }
+          </button>
+        </div>
+        <div id='analiticsTableDiv' className={styles.analyticsCont}></div>
+      </section>
+
+      <section id='graphics' className={styles.graphics}>
+        <div className={styles.pie}>
           <p>
             {lang
               ? 'ΣΥΝΟΛΟ ΚΑΤΑΝΑΛΩΣΗΣ ΑΕΡΙΟΥ'
@@ -200,14 +221,16 @@ const Body = ({ lang }: IMyBody) => {
           </p>
           <Pie data={data} />
         </div>
-        {
-          keys[1] !== undefined
-            ? <Option text={json} keyEl={keys[1]} data={workBookLocale} lang={lang} />
-            : ''
-        }
+        <div className={styles.line}>
+          {
+            keys[1] !== undefined
+              ? <Option text={json} keyEl={keys[1]} data={workBookLocale} lang={lang} />
+              : ''
+          }
+        </div>
 
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

@@ -1,0 +1,17 @@
+.header {
+    margin-bottom: 1vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--back-color);
+}
+
+.logo {
+    padding-left: 1vw;
+}
+
+.title {
+    flex: 1 0 50%;
+    text-align: center;
+    color: var(--second-color);
+}

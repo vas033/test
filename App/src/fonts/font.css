@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'NasalizationRg-Regular';
+  src: url('NasalizationRg-Regular.eot');
+  src: url('NasalizationRg-Regular.eot?#iefix') format('embedded-opentype'),
+       url('NasalizationRg-Regular.svg#NasalizationRg-Regular') format('svg'),
+       url('NasalizationRg-Regular.ttf') format('truetype'),
+       url('NasalizationRg-Regular.woff') format('woff'),
+       url('NasalizationRg-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

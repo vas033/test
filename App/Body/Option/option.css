@@ -1,0 +1,16 @@
+.select,
+.option {
+    background-color: transparent;
+    padding: 1vh 2vh;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+}
+
+.select:focus-visible {
+    outline: unset;
+}
+
+canvas {
+    width: 80%!important;
+    height: 80%!important;
+}

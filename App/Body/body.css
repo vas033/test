@@ -9,6 +9,80 @@
     overflow-x: scroll;
 }
 
+.informationContainer {
+    border: 1px solid var(--main-color);
+}
+
 .footer div:first-child {
     flex: 0 0 60%;
+}
+
+.buyerCol:not(:first-child) {
+    background-color: var(--second-btn-color);
+    box-shadow: 2px 2px var(--main-btn-color);
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+
+.buyerCol:not(:first-child):hover,
+.buyerCol:not(:first-child):active {
+    background-color: var(--second-color);
+}
+
+.buyerCol:not(:first-child):active {
+    box-shadow: unset;
+}
+
+.analiticsHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.analiticsHeader h2 {
+    flex: 1 0 50%;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.graphics p,
+.pie,
+.line {
+    padding: 1vh;
+}
+
+.graphics p {
+    font-size: 2vh;
+}
+
+.line {
+    padding-bottom: 8vh;
+}
+
+.line select {
+    margin-bottom: 1vh;
+}
+
+@media (min-width: 880px) {
+    .tableBody {
+        justify-content: center;
+        align-items: center;
+    }
+    .informationContainer {
+        border: unset;
+    }
+    .graphics {
+        display: flex;
+        justify-content: space-around;
+    }
+    .pie,
+    .line {
+        flex: 0 0 50%;
+    }
+    .line {
+        padding-bottom: unset;
+    }
 }
