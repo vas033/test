@@ -1,1 +1,2 @@
-The [webpage]([url](https://sharikov.vhost213946.ispsite.ru/rhoe/)) for this project
+The webpage for this project:
+https://sharikov.vhost213946.ispsite.ru/rhoe/
